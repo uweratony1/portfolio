@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import "@/styles/components/about.css"; // We keep this for the rest (section, text, buttons)
+import "@/styles/components/about.css";
 import aboutImage from "@/assets/images/about.png";
 
 const About = () => {
@@ -25,7 +25,17 @@ const About = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  // ✅ Inline styles for image and wrapper
+  const [isHovered, setIsHovered] = useState(false);
+
+  // ✅ Define keyframe animation in JavaScript using `@keyframes`
+  const bounceAnimation = `
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  `;
+
+  // ✅ Inline styles
   const imageWrapperStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -42,16 +52,16 @@ const About = () => {
     boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
     border: '5px solid white',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    // ✅ Apply bounce animation once on load
+    animation: 'bounce 0.8s ease-in-out'
   };
 
   const imageHoverStyle = {
     ...imageStyle,
-    transform: 'scale(1.05)',
+    transform: 'scale(1.05) translateY(-15px)',
     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
   };
-
-  const [isHovered, setIsHovered] = useState(false);
 
   const nameTagStyle = {
     textAlign: 'center',
@@ -101,8 +111,10 @@ const About = () => {
             </a>
           </div>
 
-          {/* Image with Inline Styles */}
+          {/* Image with Bounce Animation */}
           <div style={imageWrapperStyle}>
+            {/* Inject the keyframes animation */}
+            <style>{bounceAnimation}</style>
             <img
               src={aboutImage}
               alt="Uwera Tony Blaire"
