@@ -1,23 +1,9 @@
-/* src/styles/components/footer.css */
-
-/* Ensure dark mode variables or defaults are applied */
-:root {
-  /* Optional: define fallbacks if not defined elsewhere */
-  --bg-color: #111827;
-  --text-color: #e5e7eb;
-  --primary-color: #8b5cf6;
-  --spacing-lg: 2rem;
-  --spacing-md: 1.5rem;
-  --spacing-sm: 1rem;
-  --font-size-small: 0.875rem;
-}
+ /* src/styles/components/footer.css */
 
 .footer {
-  background-color: var(--bg-color); /* Deep dark background */
-  color: var(--black-color);
+  background-color: var(--text-color);
+  color: white;
   padding: var(--spacing-lg) 0;
-  border-top: 1px solid #374151; /* Subtle border for separation */
-  font-family: 'Inter', system-ui, sans-serif;
 }
 
 .footer-content {
@@ -26,9 +12,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: var(--spacing-md);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
 }
 
 .footer-links {
@@ -37,17 +20,13 @@
 }
 
 .footer-links a {
-  color: var(--black-color);
+  color: white;
   opacity: 0.8;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
   opacity: 1;
-  color: var(--primary-color);
-  transform: translateY(-1px);
 }
 
 .social-links {
@@ -56,52 +35,31 @@
 }
 
 .social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--black-color);
+  color: white;
   opacity: 0.8;
-  transition: all 0.3s ease;
-  font-size: 1.3rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: black;
+  transition: opacity 0.3s ease;
+  font-size: 1.2rem;
 }
 
 .social-links a:hover {
   opacity: 1;
-  color: var(--primary-color);
-  transform: translateY(-3px) scale(1.1);
-  background-color: black(139, 92, 246, 0.1);
 }
 
 .footer-text {
   font-size: var(--font-size-small);
-  color: var(--black-color);
   opacity: 0.6;
   text-align: center;
   width: 100%;
   margin-top: var(--spacing-md);
-  margin-bottom: 0;
-  padding: 0 1rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     text-align: center;
   }
-
+  
   .footer-links {
     justify-content: center;
-    gap: var(--spacing-md);
-  }
-
-  .social-links a {
-    font-size: 1.2rem;
-    width: 36px;
-    height: 36px;
   }
 }
