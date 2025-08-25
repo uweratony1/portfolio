@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+update this with good style: import { useEffect, useState } from 'react';
 import "@/styles/components/about.css";
 import aboutImage from "@/assets/images/about.png";
 
@@ -71,7 +71,7 @@ const About = () => {
   const nameStyle = {
     fontSize: '1.5rem',
     fontWeight: '600',
-    color: '#888',
+    color: '#1e293b',
     margin: '0',
     letterSpacing: '0.5px'
   };
@@ -80,7 +80,7 @@ const About = () => {
     display: 'block',
     width: '60px',
     height: '3px',
-    backgroundColor: '#888',
+    backgroundColor: '#4f46e5',
     margin: '0.5rem auto 0',
     borderRadius: '3px'
   };
