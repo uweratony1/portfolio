@@ -1,134 +1,138 @@
-/* src/styles/components/about.css */
+import { useEffect, useState } from 'react';
+import "@/styles/components/about.css";
+import aboutImage from "@/assets/images/about.png";
 
-.about {
-  background-color: var(--background-alt);
-  padding: var(--spacing-2xl) 0;
-}
+const About = () => {
+  const fullText = "I build and secure robust network infrastructures";
+  const [displayedText, setDisplayedText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
 
-.about-content {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xl);
-}
+  useEffect(() => {
+    let index = 0;
+    const timeout = setTimeout(() => {
+      const type = () => {
+        if (index <= fullText.length) {
+          setDisplayedText(fullText.substring(0, index));
+          index++;
+          setTimeout(type, 60);
+        } else {
+          setIsComplete(true);
+        }
+      };
+      type();
+    }, 150);
 
-.about-text {
-  flex: 1;
-}
+    return () => clearTimeout(timeout);
+  }, []);
 
-.about-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
+  const [isHovered, setIsHovered] = useState(false);
 
-.about-image img {
-  max-width: 300px;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
-}
+  // ✅ Define keyframe animation in JavaScript using `@keyframes`
+  const bounceAnimation = `
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  `;
 
-.about-text h3 {
-  font-size: var(--font-size-xl);
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-sm);
-}
+  // ✅ Inline styles
+  const imageWrapperStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '1rem',
+    marginTop: '10px'
+  };
 
-.about-text h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: var(--spacing-md);
-}
+  const imageStyle = {
+    width: '300px',
+    height: '300px',
+    borderRadius: '50%',
+    objectFit: 'cover',
+    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    border: '5px solid white',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    cursor: 'pointer',
+    // ✅ Apply bounce animation once on load
+    animation: 'bounce 0.8s ease-in-out'
+  };
 
-.about-text p {
-  color: var(--text-light);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.8;
-}
+  const imageHoverStyle = {
+    ...imageStyle,
+    transform: 'scale(1.05) translateY(-15px)',
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+  };
 
-.resume-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-}
+  const nameTagStyle = {
+    textAlign: 'center',
+    margin: 0
+  };
 
-.resume-btn i {
-  font-size: 1.2rem;
-}
+  const nameStyle = {
+    fontSize: '1.5rem',
+    fontWeight: '600',
+    color: '#1e293b',
+    margin: '0',
+    letterSpacing: '0.5px'
+  };
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-  }
-  
-  .about-text h2 {
-    font-size: var(--font-size-xl);
-  }
-}
-/* Larger image with hover effect */
-.about-image-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
+  const nameUnderlineStyle = {
+    display: 'block',
+    width: '60px',
+    height: '3px',
+    backgroundColor: '#4f46e5',
+    margin: '0.5rem auto 0',
+    borderRadius: '3px'
+  };
 
-.about-image-large {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: var(--shadow-xl);
-  border: 5px solid white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  return (
+    <section id="about" className="about section">
+      <div className="container">
+        <h2 className="section-title">About Me</h2>
+        <p className="section-subtitle">Get to know me a little better</p>
 
-.about-image-large:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
-}
+        <div className="about-content">
+          <div className="about-text">
+            <h3>Networking Engineer</h3>
+            <h2>
+              {displayedText}
+              <span className={`cursor ${isComplete ? 'visible' : ''}`}>|</span>
+            </h2>
 
-/* Name tag below image */
-.image-name-tag {
-  text-align: center;
-  margin-top: 0.5rem;
-}
+            <p>
+              I'm a dedicated Networking Engineer with over 5 years of experience designing, implementing, and maintaining scalable and secure network solutions for enterprise environments. I specialize in routing, switching, firewall configuration, and network automation.
+            </p>
+            <p>
+              My journey in networking began with a fascination for how data travels across systems and networks. This curiosity led me to pursue a career where I could ensure reliable, high-performance connectivity and cybersecurity. I am passionate about optimizing network performance and protecting digital assets from evolving threats.
+            </p>
 
-.image-name-tag h4 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin: 0;
-  letter-spacing: 0.5px;
-}
+            <a href="/resume.pdf" className="btn btn-primary resume-btn">
+              <i className="fas fa-download"></i> Download Resume
+            </a>
+          </div>
 
-/* Optional: Add a subtle background behind the name */
-.image-name-tag h4::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: var(--primary-color);
-  margin: 0.5rem auto 0;
-  border-radius: 3px;
-}
-/* Typing cursor effect */
-.cursor {
-  display: inline-block;
-  width: 1ch;
-  border-left: 2px solid var(--primary-color);
-  margin-left: 5px;
-  opacity: 1;
-  animation: blink 1s step-end infinite;
-}
+          {/* Image with Bounce Animation */}
+          <div style={imageWrapperStyle}>
+            {/* Inject the keyframes animation */}
+            <style>{bounceAnimation}</style>
+            <img
+              src={aboutImage}
+              alt="Uwera Tony Blaire"
+              style={isHovered ? imageHoverStyle : imageStyle}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            />
+            <div style={nameTagStyle}>
+              <h4 style={nameStyle}>
+                Uwera Tony Blaire
+                <span style={nameUnderlineStyle}></span>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-/* Fade out cursor after typing finishes */
-.cursor.visible {
-  opacity: 0;
-  transition: opacity 0.5s ease 0.3s;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+export default About;
