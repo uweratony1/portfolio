@@ -30,15 +30,15 @@ const Contact = () => {
           <div className="contact-info">
             <div className="info-item">
               <i className="fas fa-envelope"></i>
-              <p>tonyblaire@example.com</p>
+              <p>uweratony1@gmail.com</p>
             </div>
             <div className="info-item">
               <i className="fas fa-phone"></i>
-              <p>+250 788 000 000</p>
+              <p>+250 796028043</p>
             </div>
             <div className="info-item">
               <i className="fas fa-map-marker-alt"></i>
-              <p>Kigali, Rwanda</p>
+              <p>Musanze, Rwanda</p>
             </div>
             <div className="info-item">
               <i className="fas fa-clock"></i>
