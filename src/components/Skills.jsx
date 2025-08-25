@@ -10,10 +10,10 @@ const Skills = () => {
     "Network Automation",
     "Cybersecurity",
     "Cloud Networking",
-    "MikroTik",
+    "Fiber Optic Cable",
     "Linux Networking",
     "DNS & DHCP",
-    "BGP & OSPF"
+    "CCTV Camera"
   ];
 
   return (
