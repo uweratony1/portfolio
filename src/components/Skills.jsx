@@ -10,7 +10,7 @@ const Skills = () => {
     { name: "COMPUTER SKILLS", icon: "fab fa-python", level: "Intermediate" },
     { name: "CCTV CAMERA", icon: "fas fa-database", level: "Advanced" },
     { name: "LAN", icon: "fab fa-git-alt", level: "Expert" },
-    { name: "AWS", icon: "fab fa-aws", level: "Intermediate" }
+    { name: "IDE", icon: "fab fa-aws", level: "Intermediate" }
   ];
 
   return (
