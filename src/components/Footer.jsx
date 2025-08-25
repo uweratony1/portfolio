@@ -1,4 +1,3 @@
-
 import '@/styles/components/footer.css';
 const Footer = () => {
   return (
@@ -34,5 +33,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
