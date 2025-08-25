@@ -71,7 +71,7 @@ const About = () => {
   const nameStyle = {
     fontSize: '1.5rem',
     fontWeight: '600',
-    color: '#1e293b',
+    color: 'black',
     margin: '0',
     letterSpacing: '0.5px'
   };
@@ -80,7 +80,7 @@ const About = () => {
     display: 'block',
     width: '60px',
     height: '3px',
-    backgroundColor: '#4f46e5',
+    backgroundColor: 'black',
     margin: '0.5rem auto 0',
     borderRadius: '3px'
   };
