@@ -1,4 +1,4 @@
-update this with good style: import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "@/styles/components/about.css";
 import aboutImage from "@/assets/images/about.png";
 
