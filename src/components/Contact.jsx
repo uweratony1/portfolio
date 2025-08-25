@@ -27,13 +27,22 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" action="#" method="POST">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <input type="text" placeholder="Subject" required />
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" className="btn btn-primary">Send Message</button>
-          </form>
+          <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify
+  className="contact-form"
+>
+  <input type="hidden" name="form-name" value="contact" />
+
+  <input type="text" placeholder="Your Name" name="name" required />
+  <input type="email" placeholder="Your Email" name="email" required />
+  <input type="text" placeholder="Subject" name="subject" required />
+  <textarea rows="5" placeholder="Your Message" name="message" required></textarea>
+
+  <button type="submit" className="btn btn-primary">Send Message</button>
+</form>
         </div>
       </div>
     </section>
